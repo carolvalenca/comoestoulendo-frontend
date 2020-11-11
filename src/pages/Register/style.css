@@ -1,0 +1,81 @@
+#register-container {
+    display: flex;
+    height: 100vh;
+    color: #ee5c4e;
+    background-color: #F9F4FF;
+}
+
+#register-container .form {
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    /* background-color: #ee5c4e; */
+}
+
+#register-container .form h2 {
+    align-self: initial;
+}
+
+#register-container .form form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    /* height: 60%; */
+    border-radius: 20px;
+    /* background-color: #ee5c4e; */
+}
+
+#register-container .form form h3 {
+    align-self: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+#register-container .form form input {
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 10px;
+    border: 2px solid #f0f0f0;
+    /* background-color: #F1F1F1; */
+    margin-bottom: 20px;
+}
+
+#register-container .form form button {
+    background-color: #ee5c4e;
+    color: white;
+    border: 0;
+    padding: 10px 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    width: 40%;
+    align-self: center;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#register-container .form form button:hover {
+    background-color:#E3584B;
+}
+
+#register-container .info {
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #ee5c4e; */
+    /* background-color: white; */
+}
+
+#register-container .info h1 {
+    font-size: 50px;
+}
+
+#register-container .info img {
+    height: 600px;
+    width: 600px;
+}
