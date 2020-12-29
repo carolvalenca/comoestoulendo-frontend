@@ -73,3 +73,13 @@
         display: none;
     }
 }
+
+@media (max-width: 760px) {
+    #landing-container header {
+        padding: 2rem 5rem 0rem 5rem;
+    }
+    #landing-container img {
+        width: 29rem;
+        height: 29rem;
+    }
+}
