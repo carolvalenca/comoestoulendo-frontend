@@ -1,18 +1,20 @@
 #register-container {
     display: flex;
     height: 100vh;
-    color: #ee5c4e;
-    background-color: #F9F4FF;
+    /* width: 100vw; */
+    /* color: #ee5c4e; */
+    color: black;
+    font-size: 1.6rem;
+    background-color: #F6BD60;
 }
 
 #register-container .form {
-    width: 40vw;
+    width: 50vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: white;
-    /* background-color: #ee5c4e; */
 }
 
 #register-container .form h2 {
@@ -23,59 +25,98 @@
     display: flex;
     flex-direction: column;
     width: 80%;
-    /* height: 60%; */
-    border-radius: 20px;
-    /* background-color: #ee5c4e; */
+    border-radius: 2rem;
 }
 
 #register-container .form form h3 {
     align-self: center;
-    font-size: 30px;
-    margin-bottom: 30px;
+    font-size: 3rem;
+    margin-bottom: 3rem;
 }
 
 #register-container .form form input {
-    font-size: 15px;
-    border-radius: 5px;
-    padding: 10px;
-    border: 2px solid #f0f0f0;
-    /* background-color: #F1F1F1; */
-    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    border: 0.2rem solid #dfdfdf;
+    margin-bottom: 2rem;
 }
 
 #register-container .form form button {
-    background-color: #ee5c4e;
+    /* background-color: #ee5c4e; */
+    background-color: black;
     color: white;
     border: 0;
-    padding: 10px 5px;
+    padding: 1rem 0.5rem;
     cursor: pointer;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 1.6rem;
     width: 40%;
     align-self: center;
-    border-radius: 5px;
-    margin-top: 10px;
+    border-radius: 0.5rem;
+    margin-top: 3rem;
 }
 
-#register-container .form form button:hover {
+/* #register-container .form form button:hover {
     background-color:#E3584B;
+} */
+
+#register-container .form form p a {
+    color: black;
+    margin-left: 0.4rem;
+    text-decoration: none;
+}
+
+#register-container .form form p a:hover {
+    /* color: #E3584B; */
+    text-decoration: underline;
 }
 
 #register-container .info {
-    width: 60vw;
+    width: 50vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    /* background-color: #ee5c4e; */
-    /* background-color: white; */
+    justify-content: flex-end;
 }
 
 #register-container .info h1 {
-    font-size: 50px;
+    font-size: 5rem;
 }
 
 #register-container .info img {
-    height: 600px;
-    width: 600px;
+    height: 60rem;
+    width: 60rem;
+    z-index: 1;
+}
+
+#register-container .info .teste {
+    width: 35rem;
+    content: "";
+    min-height: 35rem;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    /* top: 120px; */
+    top: 115%;
+}
+
+#register-container .form form .password-wrapper {
+    position: relative;
+}
+
+#register-container .form form .password-wrapper input {
+    width: 100%;
+}
+
+#register-container .form form .password-wrapper button {
+    position: absolute;
+    width: 9rem;
+    margin: 0;
+    right: 0;
+    top: 0.2rem;
+    font-weight: bold;
+    font-size: 1.4rem;
+    background: none;
+    color: black;
 }

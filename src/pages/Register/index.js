@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import './style.css'
 
-import Icon from '../../assets/reading.svg'
+import Icon from '../../assets/ReadingDoodle.svg'
 
 function Register() {
+    const [passwordShown, setPasswordShown] = useState(false);
+    const togglePasswordVisiblity = () => {
+        setPasswordShown(passwordShown ? false : true);
+    };
+
     return (
         <div id="register-container">
             <div className="form">
@@ -12,7 +17,10 @@ function Register() {
                     <h3>Criar Conta</h3>
                     <input type="text" placeholder="Nome"/>
                     <input type="text" placeholder="Email"/>
-                    <input type="password" placeholder="Senha"/>
+                    <div className='password-wrapper'>
+                        <input type={passwordShown ? "text" : "password"} placeholder="Senha"/>
+                        <button onClick={togglePasswordVisiblity}>{passwordShown ? "ocultar" : "mostrar"}</button>
+                    </div>
                     <p>
                         Já possui uma conta?
                         <a href="#">Fazer login</a>
@@ -21,6 +29,7 @@ function Register() {
                 </form>
             </div>
             <div className="info">
+                <div className="teste"></div>
                 <img src={Icon}></img>
             </div>
         </div>
