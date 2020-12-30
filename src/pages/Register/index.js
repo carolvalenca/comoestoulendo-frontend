@@ -3,29 +3,24 @@ import React, { useState } from 'react'
 import './style.css'
 
 import Icon from '../../assets/ReadingDoodle.svg'
+import LandingPageButton from '../../components/LandingPageButton'
+import FormInput from '../../components/FormInput'
+import PasswordInput from '../../components/PasswordInput'
 
 function Register() {
-    const [passwordShown, setPasswordShown] = useState(false);
-    const togglePasswordVisiblity = () => {
-        setPasswordShown(passwordShown ? false : true);
-    };
-
     return (
         <div id="register-container">
             <div className="form">
                 <form>
                     <h3>Criar Conta</h3>
-                    <input type="text" placeholder="Nome"/>
-                    <input type="text" placeholder="Email"/>
-                    <div className='password-wrapper'>
-                        <input type={passwordShown ? "text" : "password"} placeholder="Senha"/>
-                        <button onClick={togglePasswordVisiblity}>{passwordShown ? "ocultar" : "mostrar"}</button>
-                    </div>
+                    <FormInput type="text" placeholder="Nome" />
+                    <FormInput type="text" placeholder="Email" />
+                    <PasswordInput />
                     <p>
                         Já possui uma conta?
                         <a href="#">Fazer login</a>
                     </p>
-                    <button>Cadastrar</button>
+                    <LandingPageButton content="Cadastrar" />
                 </form>
             </div>
             <div className="info">

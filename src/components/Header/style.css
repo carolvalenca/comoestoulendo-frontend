@@ -1,0 +1,21 @@
+#header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 20rem 0rem 20rem;
+    width: 100%;
+    align-self: flex-start;
+}
+
+#header-container p {
+    font-weight: bold;
+}
+
+#header-container a {
+    color: black;
+    text-decoration: none;
+}
+
+#header-container a:hover {
+    text-decoration: underline;
+}
