@@ -1,0 +1,38 @@
+#book-modal-container {
+    font-size: 1.6rem;
+    font-weight: normal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#book-modal-container h3 {
+    font-size: 2.2rem;
+    text-align: center;
+}
+
+#book-modal-container .close-button {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#book-modal-container .close-button img {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+#book-modal-container .book-cover {
+    margin: 1.5rem 0;
+}
+
+#book-modal-container .book-info {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+#book-modal-container .book-info p {
+    font-weight: bold;
+    margin-right: 0.5rem;
+}

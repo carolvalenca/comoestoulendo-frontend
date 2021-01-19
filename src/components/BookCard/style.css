@@ -1,0 +1,83 @@
+#book-card-container {
+    display: flex;
+    flex-direction: column;
+    width: 25rem;
+    margin-bottom: 2rem;
+    align-items: center;
+    font-size: 1.4rem;
+    padding: 1.2rem;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 10px #cccccc;
+    height: auto;
+}
+
+#book-card-container h4 {
+    text-align: center;
+    font-size: 1.7rem;
+    margin: 1rem 0rem;
+    width: 100%;
+}
+
+#book-card-container button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #999999;
+    font-weight: bold;
+}
+
+#book-card-container button:hover {
+    text-decoration: underline;
+}
+
+#book-card-container span {
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    margin-bottom: 1rem;
+    align-self: flex-end;
+    font-size: 1.2rem
+}
+
+#book-card-container .buttons {
+    width: 100%;
+    display: flex;
+    margin-top: auto;
+}
+
+#book-card-container .delete {
+    background-color: red;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+#book-card-container .delete:hover {
+    background-color: rgb(216, 3, 3);
+}
+
+#book-card-container .buttons .plus {
+    margin-left: auto;
+}
+
+#book-card-container .delete img {
+    height: 2rem;
+    width: 2rem;
+}
+
+#book-card-container .edit {
+    background-color: #ffd11a;
+}
+
+#book-card-container .edit:hover {
+    background-color: #f3c614;
+}
+
+.finished {
+    background: #cc66ff;
+}
+
+.notfinished {
+    background: #ff9933;
+}

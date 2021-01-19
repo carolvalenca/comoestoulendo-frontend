@@ -5,13 +5,17 @@ import './style.css'
 import Header from '../../components/Header'
 import LandingPageButton from '../../components/LandingPageButton'
 import api from '../../services/api'
-import deleteIcon from '../../assets/delete.svg'
-import editIcon from '../../assets/pen.svg'
-import plusIcon from '../../assets/icons8-plus-math-26.png'
+
+import BookCard from '../../components/BookCard'
+import BookModal from '../../components/BookModal'
 
 function Main() {
     const [books, setBooks] = useState([]);
     const [booksToShow, setBooksToShow] = useState([]);
+    const [modalIsOpen, setIsOpen] = useState(false);
+    const [bookInfo, setBookInfo] = useState({});
+    const [func, setFunc] = useState(false);
+    const [lastOption, setLastOption] = useState("all");
 
     useEffect(() => {
         //faz as requisicoes pra api
@@ -20,48 +24,71 @@ function Main() {
 
             await setBooks(books.data)
             await setBooksToShow(books.data)
-       }
-
-       fetchData()
+        }
+        
+        fetchData()
     }, [])
 
-    function filterBooks(event){
-        const filter = event.target.value
+    async function deleteBookCard(id) {
+        const allBooks = await api.delete(`books/delete/${id}`)
+
+        await setBooks(allBooks.data)
+
+        const booksShow = filterBooks(lastOption, allBooks.data)
+
+        await setBooksToShow(booksShow)
+    }
+
+    //funcao responsavel por fechar o modal
+    function closeModal(){
+        setIsOpen(false);
+    }
+
+    //funcao responsavel por abrir o modal e receber as informacoes da disciplina necessarias p o modal
+    function openModal(bookInfo) {
+        setIsOpen(true);
+
+        console.log(bookInfo)
+        setBookInfo(bookInfo)
+    }
+
+    function filterBooks(filter, arra){
         let arr = []
         if (filter === "finished") {
-            arr = books.filter(elem => elem.finished)
+            arr = arra.filter(elem => elem.finished)
         } else if (filter === "notfinished") {
-            arr = books.filter(elem => !elem.finished)
+            console.log(filter === "notfinished")
+            arr = arra.filter(elem => !elem.finished)
+            console.log(arr)
         } else {
-            arr = books
+            arr = arra
         }
 
-        setBooksToShow(arr)
+        return arr
+    }
+
+    async function changeBooksSelected(filter){
+        const booksSelected = filterBooks(filter, books)
+
+        await setLastOption(filter)
+        await setBooksToShow(booksSelected)
     }
 
     return (
         <div id="main-container">
             <Header action="Fazer Logout" />
-            <div>
-                <select onChange={filterBooks}>
-                    <option value="all">Todos</option>
+            <BookModal elem={bookInfo} modalIsOpen={modalIsOpen} closeModal={closeModal} />
+            <div className="sla">
+                <select onChange={(event) => changeBooksSelected(event.target.value)}>
+                    <option selected value="all">Todos</option>
                     <option value="notfinished">Não terminados</option>
                     <option value="finished">Terminados</option>
                 </select>
-                <button>Adicionar livro</button>
+                <button>Adicionar livro +</button>
             </div>
             <div className="cards">
                 {booksToShow && booksToShow.map(elem => (
-                    <div className="card">
-                        <span className={elem.finished ? "finished" : "notfinished"}>{elem.finished ? "lido" : "lendo"}</span>
-                        <img src={elem.bookCover}></img>
-                        <h4>{elem.name}</h4>
-                        <div className="buttons">
-                            <button className="delete"><img src={deleteIcon}></img></button>
-                            <button className="delete edit"><img src={editIcon}></img></button>
-                            <button className="plus">Ver mais</button>
-                        </div>
-                    </div>
+                    <BookCard elem={elem} openModal={openModal} deleteBook={deleteBookCard}/>
                 ))}
             </div>
         </div>
