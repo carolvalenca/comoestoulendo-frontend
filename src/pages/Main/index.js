@@ -7,14 +7,14 @@ import LandingPageButton from '../../components/LandingPageButton'
 import api from '../../services/api'
 
 import BookCard from '../../components/BookCard'
-import BookModal from '../../components/BookModal'
+import BookModal from '../../components/modals/BookModal'
+import EditBookModal from '../../components/modals/EditBookModal'
 
 function Main() {
     const [books, setBooks] = useState([]);
     const [booksToShow, setBooksToShow] = useState([]);
     const [modalIsOpen, setIsOpen] = useState(false);
     const [bookInfo, setBookInfo] = useState({});
-    const [func, setFunc] = useState(false);
     const [lastOption, setLastOption] = useState("all");
 
     useEffect(() => {
@@ -37,6 +37,10 @@ function Main() {
         const booksShow = filterBooks(lastOption, allBooks.data)
 
         await setBooksToShow(booksShow)
+    }
+
+    function handleForm(data) {
+        console.log(data)
     }
 
     //funcao responsavel por fechar o modal
@@ -88,7 +92,7 @@ function Main() {
             </div>
             <div className="cards">
                 {booksToShow && booksToShow.map(elem => (
-                    <BookCard elem={elem} openModal={openModal} deleteBook={deleteBookCard}/>
+                    <BookCard key={elem._id} elem={elem} openModal={openModal} deleteBook={deleteBookCard} handleEditForm={handleForm}/>
                 ))}
             </div>
         </div>

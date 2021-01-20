@@ -37,6 +37,7 @@ function BookModal({ elem, modalIsOpen, closeModal }) {
             style={customStyles}
             id="book-modal-container"
             contentLabel="Example Modal"
+            ariaHideApp={false}
         >
             <button className="close-button" onClick={closeModal}>
                 <img src={cross}></img>
